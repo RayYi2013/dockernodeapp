@@ -1,0 +1,27 @@
+{
+  "name": "mean",
+  "description": "mean app",
+  "main": "index.js",
+  "authors": [
+    "ray yi"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.6",
+    "angular-bootstrap": "~1.0.3",
+    "angular-mocks": "~1.4.8"
+  }
+}
