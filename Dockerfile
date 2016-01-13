@@ -5,13 +5,13 @@ FROM node:latest
 WORKDIR /home/app
 
 # Install app dependencies
-COPY dist/package.json /home/app/
+COPY package.json /home/app/
 
 # Install dependencies
 RUN npm install
  
 # Put all our code inside that directory that lives in the container
-ADD dist/. /home/app
+ADD . /home/app
  
 EXPOSE 9000
  
