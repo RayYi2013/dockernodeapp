@@ -1,24 +1,27 @@
+/**
+ * Main application file
+ */
+
 'use strict';
- 
-// Set default node environment to development
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
- 
-var express = require('express');
-var config = require('./config');
- 
+
+import express from 'express';
+import config from './config/environment';
+import http from 'http';
+
 // Setup server
 var app = express();
-var http = require('http');
- 
-// Express configuration
+var server = http.createServer(app);
 require('./config/express')(app);
-// Route configutation
 require('./routes')(app);
- 
+
 // Start server
-http.createServer(app).listen(config.port, function () {
-  console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
-});
- 
+function startServer() {
+  server.listen(config.port, config.ip, function() {
+    console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+  });
+}
+
+setImmediate(startServer);
+
 // Expose app
 exports = module.exports = app;

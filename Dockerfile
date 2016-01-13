@@ -3,18 +3,18 @@ FROM node:latest
  
 # Set in what directory commands will run
 WORKDIR /home/app
+
+# Install app dependencies
+COPY package.json /home/app/
+
+# Install dependencies
+RUN npm install
  
 # Put all our code inside that directory that lives in the container
 ADD . /home/app
  
-# Install dependencies
-RUN \
-    npm install -g bower && \
-    npm install && \
-    bower install --config.interactive=false --allow-root
- 
-# Tell Docker we are going to use this port
 EXPOSE 3000
  
 # The command to run our app when the container is run
-CMD ["node", "server/app.js"]
+#CMD ["node", "server/app.js"]
+CMD [ "npm", "start" ]
