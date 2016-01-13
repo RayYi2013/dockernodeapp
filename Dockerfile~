@@ -13,7 +13,7 @@ RUN npm install
 # Put all our code inside that directory that lives in the container
 ADD dist/. /home/app
  
-EXPOSE 9000
+EXPOSE 3000
  
 # The command to run our app when the container is run
 #CMD ["node", "server/app.js"]
